@@ -1,0 +1,30 @@
+name: tofu
+
+on:
+  push:
+    branches:
+      - "main"
+  schedule:
+    - cron: "0 4 * * *"
+
+concurrency:
+  group: ${{ github.workflow }}
+
+jobs:
+  org:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: opentofu/setup-opentofu@v1
+      - uses: bitwarden/sm-action@v2
+        with:
+          access_token: ${{ secrets.BW_ACCESS_TOKEN }}
+          base_url: https://vault.bitwarden.com
+          secrets: |
+            b7d22a8b-8185-4d62-8bf6-b1d400b87552 > PG_CONN_STR
+            a288b2ae-a336-4425-9b07-b1f100cd05ec > TF_VAR_gh_token
+      - run: |
+          tofu init -upgrade
+      - run: |
+          GITHUB_TOKEN="${TF_VAR_gh_token}" tofu \
+            apply -auto-approve -input=false -lock=true -no-color
