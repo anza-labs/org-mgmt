@@ -20,7 +20,14 @@ module "team_core" {
   name   = "core"
   members = [
     { username = module.shanduur.username, role = "maintainer" },
-    { username = module.shanduur_auto.username, role = "maintainer" },
     { username = module.niesmaczne.username },
+  ]
+}
+
+module "team_bots" {
+  source = "./modules/team"
+  name   = "bots"
+  members = [
+    { username = module.shanduur_auto.username, role = "maintainer" },
   ]
 }
