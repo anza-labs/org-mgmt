@@ -21,6 +21,7 @@ jobs:
           access_token: ${{ secrets.BW_ACCESS_TOKEN }}
           base_url: https://vault.bitwarden.com
           secrets: |
+            953077e4-dbec-4595-a0d7-b1d400d8adc6 > DISCORD_WEBHOOK
             b7d22a8b-8185-4d62-8bf6-b1d400b87552 > PG_CONN_STR
             a288b2ae-a336-4425-9b07-b1f100cd05ec > TF_VAR_gh_token
       - run: |
@@ -28,3 +29,21 @@ jobs:
       - run: |
           GITHUB_TOKEN="${TF_VAR_gh_token}" tofu \
             apply -auto-approve -input=false -lock=true -no-color
+      - uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with:
+          severity: info
+          details: "[${{ github.action_repository }}] Apply succesfull @ ${{ github.ref }}"
+          webhookUrl: ${{ env.DISCORD_WEBHOOK }}
+      - uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with:
+          severity: error
+          details: "[${{ github.action_repository }}] Apply failed @ ${{ github.ref }}"
+          webhookUrl: ${{ env.DISCORD_WEBHOOK }}
+      - uses: rjstone/discord-webhook-notify@v1
+        if: cancelled()
+        with:
+          severity: warn
+          details: "[${{ github.action_repository }}] Apply cancelled @ ${{ github.ref }}"
+          webhookUrl: ${{ env.DISCORD_WEBHOOK }}
