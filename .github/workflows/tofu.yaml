@@ -33,17 +33,17 @@ jobs:
         if: success()
         with:
           severity: info
-          details: "[${{ github.action_repository }}] Apply succesfull @ ${{ github.ref }}"
+          details: "[ ${{ github.event.org.login }}/${{ github.event.repository.name }}] Apply succesfull @ ${{ github.head_commit.id }}"
           webhookUrl: ${{ env.DISCORD_WEBHOOK }}
       - uses: rjstone/discord-webhook-notify@v1
         if: failure()
         with:
           severity: error
-          details: "[${{ github.action_repository }}] Apply failed @ ${{ github.ref }}"
+          details: "[ ${{ github.event.org.login }}/${{ github.event.repository.name }}] Apply failed @ ${{ github.head_commit.id }}"
           webhookUrl: ${{ env.DISCORD_WEBHOOK }}
       - uses: rjstone/discord-webhook-notify@v1
         if: cancelled()
         with:
           severity: warn
-          details: "[${{ github.action_repository }}] Apply cancelled @ ${{ github.ref }}"
+          details: "[ ${{ github.event.org.login }}/${{ github.event.repository.name }}] Apply cancelled @ ${{ github.head_commit.id }}"
           webhookUrl: ${{ env.DISCORD_WEBHOOK }}
