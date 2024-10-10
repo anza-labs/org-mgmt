@@ -13,6 +13,14 @@ module "scribe" {
   archived    = false
   is_public   = true
   topics      = ["hacktoberfest", "kubernetes"]
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+    "unit",
+    "e2e",
+    "lint",
+    "hadolint",
+  ]
 }
 
 module "manifests" {
