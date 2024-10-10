@@ -1,9 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [ "config:recommended" ],
-  "labels": [ "area/dependency" ],
   "automerge": true,
+  "labels": [
+    "area/dependency"
+  ],
+  "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
-    "enabled": true
+    "enabled": true,
+    "labels": [
+      "kind/security"
+    ]
   }
 }
