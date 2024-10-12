@@ -1,0 +1,42 @@
+name: Membership Request
+description: Request membership for this organization.
+title: "[MEMBERSHIP]: <username>"
+labels:
+  - kind/membership
+body:
+  - type: input
+    id: username
+    attributes:
+      label: GitHub Username
+      description: Your GitHub username.
+      placeholder: Enter your GitHub username.
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for Request
+      description: Why do you want to join this repository?
+      placeholder: Provide a brief explanation.
+    validations:
+      required: true
+  - type: input
+    id: role
+    attributes:
+      label: Role or Expertise
+      description: What role or expertise do you bring to the project?
+      placeholder: e.g., Developer, Tester, Designer, etc.
+  - type: textarea
+    id: contributions
+    attributes:
+      label: Contributions or Experience
+      description: Share any relevant contributions or past experience.
+      placeholder: Mention any work you've done in similar projects.
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: Code of Conduct Agreement
+      description: I have read and agree to follow the code of conduct.
+      options:
+        - label: I agree to follow this organzation's [Code of Conduct](https://github.com/anza-labs/org-mgmt/blob/main/CODE_OF_CONDUCT.md).
+          required: true

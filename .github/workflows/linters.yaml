@@ -8,13 +8,22 @@ permissions:
   contents: read
 
 jobs:
-  tf-linters:
+  tofu-fmt:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: opentofu/setup-opentofu@v1
       - run: |
           tofu fmt -check -diff -recursive .
+
+  tflint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: terraform-linters/setup-tflint@v4
+      - run: |
+          tflint --init
+          tflint --recursive
 
   shell-linter:
     runs-on: ubuntu-latest
