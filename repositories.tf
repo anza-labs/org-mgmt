@@ -1,3 +1,12 @@
+locals {
+  PAT                = "a288b2ae-a336-4425-9b07-b1f100cd05ec"
+  GPG_KEYRING_BASE64 = "568fd648-901a-4161-85e4-b1c500b3cb94"
+  GPG_PASSPHRASE     = "ffb60bb8-8422-4d3b-95a1-b20700fb5232"
+  DISCORD_WEBHOOK    = "953077e4-dbec-4595-a0d7-b1d400d8adc6"
+  LINODE_TOKEN       = "1c579b93-ac50-47a9-85e1-b1c500b40dd5"
+  PG_CONN_STR        = "b7d22a8b-8185-4d62-8bf6-b1d400b87552"
+}
+
 module "org_mgmt" {
   source      = "./modules/repository"
   name        = "org-mgmt"
@@ -21,6 +30,12 @@ module "org_mgmt" {
     "tflint",
     "shell-linter",
   ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+    { name = "PG_CONN_STR", secret_id = local.PG_CONN_STR },
+    { name = "DISCORD_WEBHOOK", secret_id = local.DISCORD_WEBHOOK },
+  ]
 }
 
 module "scribe" {
@@ -30,6 +45,7 @@ module "scribe" {
   archived    = false
   is_public   = true
   topics      = ["hacktoberfest", "kubernetes"]
+
   required_status_checks = [
     "DCO",
     "pr-title",
@@ -37,6 +53,10 @@ module "scribe" {
     "e2e",
     "lint",
     "hadolint",
+  ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
   ]
 }
 
@@ -47,6 +67,10 @@ module "manifests" {
   archived    = false
   is_public   = true
   topics      = ["hacktoberfest", "kubernetes", "flux", "gitops"]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+  ]
 }
 
 module "infra" {
@@ -56,6 +80,13 @@ module "infra" {
   archived    = false
   is_public   = true
   topics      = ["hacktoberfest", "kubernetes", "flux", "gitops"]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+    { name = "LINODE_TOKEN", secret_id = local.LINODE_TOKEN },
+    { name = "PG_CONN_STR", secret_id = local.PG_CONN_STR },
+    { name = "DISCORD_WEBHOOK", secret_id = local.DISCORD_WEBHOOK },
+  ]
 }
 
 module "charts" {
@@ -66,4 +97,10 @@ module "charts" {
   is_public    = true
   enable_pages = true
   topics       = ["hacktoberfest", "kubernetes", "helm"]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+    { name = "GPG_KEYRING_BASE64", secret_id = local.GPG_KEYRING_BASE64 },
+    { name = "GPG_PASSPHRASE", secret_id = local.GPG_PASSPHRASE },
+  ]
 }

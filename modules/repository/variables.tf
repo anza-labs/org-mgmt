@@ -4,36 +4,36 @@ variable "name" {
 }
 
 variable "description" {
-  description = ""
+  description = "Description of the repository"
   type        = string
   default     = ""
 }
 
 variable "homepage_url" {
-  description = ""
+  description = "URL of the repository's homepage, if any"
   type        = string
   default     = ""
 }
 
 variable "archived" {
-  description = ""
+  description = "Whether the repository should be archived (true) or active (false)"
   type        = bool
 }
 
 variable "is_public" {
-  description = ""
+  description = "Whether the repository is public (true) or private (false)"
   type        = bool
   default     = false
 }
 
 variable "enable_pages" {
-  description = ""
+  description = "Enable GitHub Pages for the repository (true to enable, false to disable)"
   type        = bool
   default     = false
 }
 
 variable "required_status_checks" {
-  description = ""
+  description = "List of required status checks for pull request merges"
   type        = list(string)
   default = [
     "DCO",
@@ -42,7 +42,7 @@ variable "required_status_checks" {
 }
 
 variable "topics" {
-  description = ""
+  description = "Topics associated with the repository for discoverability"
   type        = list(string)
   default = [
     "hacktoberfest",
@@ -50,13 +50,13 @@ variable "topics" {
 }
 
 variable "milestones" {
-  description = ""
+  description = "Milestones to be tracked within the repository"
   type        = set(string)
   default     = []
 }
 
 variable "labels" {
-  description = "List of labeles that are assigned to repository"
+  description = "List of labels that are assigned to the repository for categorizing issues and pull requests"
   type = list(object({
     name        = string
     color       = string
@@ -72,4 +72,13 @@ variable "labels" {
     { name = "good first issue", color = "7057ff", description = "Denotes an issue ready for a new contributor, according to the \"help wanted\" guidelines." },
     { name = "help wanted", color = "006b75", description = "Denotes an issue that needs help from a contributor. Must meet \"help wanted\" guidelines." },
   ]
+}
+
+variable "secrets" {
+  description = "List of secrets with Bitwarden secret IDs and names for GitHub Actions secrets"
+  type = list(object({
+    secret_id = string
+    name      = string
+  }))
+  default = []
 }

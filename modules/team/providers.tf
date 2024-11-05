@@ -1,6 +1,8 @@
 terraform {
   required_providers {
-    github = {}
+    github = {
+      source = "integrations/github"
+    }
   }
 }
 

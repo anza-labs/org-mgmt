@@ -76,3 +76,15 @@ resource "github_repository_milestone" "milestone" {
   repository = github_repository.repo.name
   title      = each.value
 }
+
+data "bitwarden_secret" "secrets" {
+  for_each = { for s in var.secrets : s.name => s }
+  id       = each.value.secret_id
+}
+
+resource "github_actions_secret" "secrets" {
+  for_each        = data.bitwarden_secret.secrets
+  repository      = github_repository.repo.name
+  secret_name     = each.key
+  plaintext_value = each.value.value
+}

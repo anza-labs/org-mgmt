@@ -8,10 +8,21 @@ terraform {
       source  = "integrations/github"
       version = "6.3.1"
     }
+
+    bitwarden = {
+      source  = "maxlaverse/bitwarden"
+      version = "0.11.0"
+    }
   }
 }
 
 provider "github" {
   owner = "anza-labs"
-  token = var.gh_token
+}
+
+provider "bitwarden" {
+  access_token = var.bws_access_token
+  experimental {
+    embedded_client = true
+  }
 }

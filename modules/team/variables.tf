@@ -4,6 +4,7 @@ variable "name" {
 }
 
 variable "members" {
+  description = "List of team members, each with a specified username and optional role"
   type = list(object({
     username = string
     role     = optional(string, "member")
