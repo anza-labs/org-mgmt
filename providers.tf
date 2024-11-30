@@ -8,7 +8,7 @@ terraform {
   required_providers {
     github = {
       source  = "integrations/github"
-      version = "6.3.1"
+      version = "6.4.0"
     }
 
     bitwarden = {
