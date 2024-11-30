@@ -29,21 +29,3 @@ jobs:
         run: |
           GITHUB_TOKEN="${PAT}" tofu \
             apply -auto-approve -input=false -lock=true -no-color
-      - uses: rjstone/discord-webhook-notify@v1
-        if: success()
-        with:
-          severity: info
-          details: "Success"
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-      - uses: rjstone/discord-webhook-notify@v1
-        if: failure()
-        with:
-          severity: error
-          details: "Failure"
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-      - uses: rjstone/discord-webhook-notify@v1
-        if: cancelled()
-        with:
-          severity: warn
-          details: "Cancelled"
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
