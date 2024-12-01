@@ -1,12 +1,9 @@
 name: linters
-
 on:
   pull_request:
-    branches: [ '*' ]
-
+    branches: ['*']
 permissions:
   contents: read
-
 jobs:
   tofu-fmt:
     runs-on: ubuntu-latest
@@ -15,7 +12,6 @@ jobs:
       - uses: opentofu/setup-opentofu@v1
       - run: |
           tofu fmt -check -diff -recursive .
-
   tflint:
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +20,6 @@ jobs:
       - run: |
           tflint --init
           tflint --recursive
-
   shell-linter:
     runs-on: ubuntu-latest
     steps:

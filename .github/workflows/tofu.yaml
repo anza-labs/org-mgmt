@@ -1,15 +1,12 @@
 name: tofu
-
 on:
   push:
     branches:
       - "main"
   schedule:
     - cron: "0 4 * * *"
-
 concurrency:
   group: ${{ github.workflow }}
-
 jobs:
   org:
     runs-on: ubuntu-latest
