@@ -1,4 +1,5 @@
 locals {
+  BITWARDEN_TOKEN    = "0a3da8e6-41e3-4c40-9883-b23c00af72ee"
   GPG_KEYRING_BASE64 = "568fd648-901a-4161-85e4-b1c500b3cb94"
   GPG_PASSPHRASE     = "ffb60bb8-8422-4d3b-95a1-b20700fb5232"
   LINODE_TOKEN       = "1c579b93-ac50-47a9-85e1-b1c500b40dd5"
@@ -85,6 +86,7 @@ module "infra" {
   topics      = ["hacktoberfest", "kubernetes", "flux", "gitops"]
 
   secrets = [
+    { name = "BITWARDEN_TOKEN", secret_id = local.BITWARDEN_TOKEN },
     { name = "LINODE_TOKEN", secret_id = local.LINODE_TOKEN },
     { name = "OCI_FINGERPRINT", secret_id = local.OCI_FINGERPRINT },
     { name = "OCI_PEM_PRV", secret_id = local.OCI_PEM_PRV },
