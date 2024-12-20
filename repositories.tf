@@ -113,3 +113,25 @@ module "charts" {
     { name = "GPG_PASSPHRASE", secret_id = local.GPG_PASSPHRASE },
   ]
 }
+
+module "image-builder" {
+  source      = "./modules/repository"
+  name        = "image-builder"
+  description = "Tool building linuxkit images in Kubernetes"
+  archived    = false
+  is_public   = true
+  topics      = ["hacktoberfest", "kubernetes", "linuxkit"]
+
+  required_status_checks = [
+    "DCO",
+    # "pr-title",
+    # "unit",
+    # "e2e",
+    # "lint",
+    # "hadolint",
+  ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+  ]
+}
