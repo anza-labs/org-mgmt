@@ -36,6 +36,7 @@ resource "github_repository" "repo" {
 
 resource "github_issue_labels" "labels" {
   repository = github_repository.repo.name
+  depends_on = [ github_repository.repo ]
 
   dynamic "label" {
     for_each = var.labels
