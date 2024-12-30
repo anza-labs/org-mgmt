@@ -68,6 +68,7 @@ variable "labels" {
     { name = "kind/bug", color = "e11d21", description = "Categorizes issue or PR as related to a bug." },
     { name = "kind/documentation", color = "c7def8", description = "Categorizes issue or PR as related to documentation." },
     { name = "kind/feature", color = "c7def8", description = "Categorizes issue or PR as related to a new feature." },
+    { name = "kind/security", color = "e11d21", description = "Categorizes issue or PR as related to a security." },
     { name = "kind/support", color = "c7def8", description = "Categorizes issue or PR as support-related." },
     { name = "good first issue", color = "7057ff", description = "Denotes an issue ready for a new contributor, according to the \"help wanted\" guidelines." },
     { name = "help wanted", color = "006b75", description = "Denotes an issue that needs help from a contributor. Must meet \"help wanted\" guidelines." },
