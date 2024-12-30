@@ -1,15 +1,16 @@
 locals {
-  BITWARDEN_TOKEN    = "0a3da8e6-41e3-4c40-9883-b23c00af72ee"
-  GPG_KEYRING_BASE64 = "568fd648-901a-4161-85e4-b1c500b3cb94"
-  GPG_PASSPHRASE     = "ffb60bb8-8422-4d3b-95a1-b20700fb5232"
-  LINODE_TOKEN       = "1c579b93-ac50-47a9-85e1-b1c500b40dd5"
-  OCI_FINGERPRINT    = "fdc9cf76-3eed-4173-9e66-b1d400b74aaf"
-  OCI_PEM_PRV        = "8c29761d-9f79-44f1-97a1-b1d400b70984"
-  OCI_TENANCY_OCID   = "f65d2583-7fe2-4ead-a4fa-b1d400b72191"
-  OCI_USER_OCID      = "be76a461-2f01-49b8-a106-b1d400b735f4"
-  PAT                = "a288b2ae-a336-4425-9b07-b1f100cd05ec"
-  PG_CONN_STR        = "b7d22a8b-8185-4d62-8bf6-b1d400b87552"
-  SSH_PUB_KEY        = "b2b149a9-1a9c-4a45-b3c6-b1d400b48405"
+  BITWARDEN_TOKEN           = "0a3da8e6-41e3-4c40-9883-b23c00af72ee"
+  DISCORD_WEBHOOK_FLUX_EU_1 = "693e8bd4-4cb4-4a5b-9ab7-b25601604439"
+  GPG_KEYRING_BASE64        = "568fd648-901a-4161-85e4-b1c500b3cb94"
+  GPG_PASSPHRASE            = "ffb60bb8-8422-4d3b-95a1-b20700fb5232"
+  LINODE_TOKEN              = "1c579b93-ac50-47a9-85e1-b1c500b40dd5"
+  OCI_FINGERPRINT           = "fdc9cf76-3eed-4173-9e66-b1d400b74aaf"
+  OCI_PEM_PRV               = "8c29761d-9f79-44f1-97a1-b1d400b70984"
+  OCI_TENANCY_OCID          = "f65d2583-7fe2-4ead-a4fa-b1d400b72191"
+  OCI_USER_OCID             = "be76a461-2f01-49b8-a106-b1d400b735f4"
+  PAT                       = "a288b2ae-a336-4425-9b07-b1f100cd05ec"
+  PG_CONN_STR               = "b7d22a8b-8185-4d62-8bf6-b1d400b87552"
+  SSH_PUB_KEY               = "b2b149a9-1a9c-4a45-b3c6-b1d400b48405"
 }
 
 module "org_mgmt" {
@@ -87,6 +88,7 @@ module "infra" {
 
   secrets = [
     { name = "BITWARDEN_TOKEN", secret_id = local.BITWARDEN_TOKEN },
+    { name = "DISCORD_WEBHOOK_FLUX_EU_1", secret_id = local.DISCORD_WEBHOOK_FLUX_EU_1 },
     { name = "LINODE_TOKEN", secret_id = local.LINODE_TOKEN },
     { name = "OCI_FINGERPRINT", secret_id = local.OCI_FINGERPRINT },
     { name = "OCI_PEM_PRV", secret_id = local.OCI_PEM_PRV },
@@ -115,12 +117,12 @@ module "charts" {
 }
 
 module "image-builder" {
-  source      = "./modules/repository"
-  name        = "image-builder"
-  description = "Tool for building linuxkit images in Kubernetes"
-  archived    = false
-  is_public   = true
-  topics      = ["hacktoberfest", "kubernetes", "linuxkit"]
+  source       = "./modules/repository"
+  name         = "image-builder"
+  description  = "Tool for building linuxkit images in Kubernetes"
+  archived     = false
+  is_public    = true
+  topics       = ["hacktoberfest", "kubernetes", "linuxkit"]
   enable_pages = true
   homepage_url = "anza-labs.github.io/image-builder"
 
