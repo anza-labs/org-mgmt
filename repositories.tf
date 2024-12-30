@@ -137,3 +137,21 @@ module "image-builder" {
     { name = "PAT", secret_id = local.PAT },
   ]
 }
+
+module "linuxkit-modules" {
+  source      = "./modules/repository"
+  name        = "linuxkit-modules"
+  description = "Modules for linuxkit and containers"
+  archived    = false
+  is_public   = true
+  topics      = ["hacktoberfest", "kubernetes", "linuxkit"]
+
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+  ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+  ]
+}
