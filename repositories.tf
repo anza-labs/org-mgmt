@@ -130,7 +130,7 @@ module "image-builder" {
     "DCO",
     "pr-title",
     "unit",
-    "e2e",
+    # "e2e", e2e are not working for image builder in CI due to limited memory, fix needed
     "lint",
     "hadolint",
   ]
