@@ -16,8 +16,9 @@ module "niesmaczne" {
 }
 
 module "team_core" {
-  source = "./modules/team"
-  name   = "core"
+  source  = "./modules/team"
+  name    = "core"
+  privacy = "closed"
   members = [
     { username = module.shanduur.username, role = "maintainer" },
     { username = module.niesmaczne.username },

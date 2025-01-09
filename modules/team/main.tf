@@ -1,5 +1,6 @@
 resource "github_team" "team" {
-  name = var.name
+  name    = var.name
+  privacy = var.privacy
 }
 
 resource "github_team_members" "members" {
