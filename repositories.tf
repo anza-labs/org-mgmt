@@ -147,8 +147,8 @@ module "kink" {
   archived     = false
   is_public    = true
   topics       = ["hacktoberfest", "kubernetes", "cluster-api"]
-  enable_pages = true
-  homepage_url = "anza-labs.github.io/kink"
+  # enable_pages = true
+  # homepage_url = "anza-labs.github.io/kink"
 
   required_status_checks = [
     "DCO",
