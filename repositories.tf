@@ -153,11 +153,10 @@ module "kink" {
   required_status_checks = [
     "DCO",
     "pr-title",
-    ## TODO: Disabled until implemented
-    # "unit",
-    # "e2e",
-    # "lint",
-    # "hadolint",
+    "unit",
+    "e2e",
+    "lint",
+    "hadolint",
   ]
 
   secrets = [
