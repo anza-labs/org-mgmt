@@ -140,6 +140,31 @@ module "image-builder" {
   ]
 }
 
+module "kink" {
+  source       = "./modules/repository"
+  name         = "kink"
+  description  = "Kubernetes in Kubernetes"
+  archived     = false
+  is_public    = true
+  topics       = ["hacktoberfest", "kubernetes", "cluster-api"]
+  enable_pages = true
+  homepage_url = "anza-labs.github.io/kink"
+
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+    ## TODO: Disabled until implemented
+    # "unit",
+    # "e2e",
+    # "lint",
+    # "hadolint",
+  ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+  ]
+}
+
 module "linuxkit-modules" {
   source      = "./modules/repository"
   name        = "linuxkit-modules"
