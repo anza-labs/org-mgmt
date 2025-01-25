@@ -11,6 +11,8 @@ locals {
   PAT                       = "a288b2ae-a336-4425-9b07-b1f100cd05ec"
   PG_CONN_STR               = "b7d22a8b-8185-4d62-8bf6-b1d400b87552"
   SSH_PUB_KEY               = "b2b149a9-1a9c-4a45-b3c6-b1d400b48405"
+  TAILSCALE_OAUTH_CLIENT_ID = "6577c828-7802-4246-8762-b27000f030e9"
+  TAILSCALE_OAUTH_SECRET    = "ce78265d-a7b9-4fbf-958b-b27000f04bef"
 }
 
 module "org_mgmt" {
@@ -97,6 +99,8 @@ module "infra" {
     { name = "PG_CONN_STR", secret_id = local.PG_CONN_STR },
     { name = "PAT", secret_id = local.PAT },
     { name = "SSH_PUB_KEY", secret_id = local.SSH_PUB_KEY },
+    { name = "TAILSCALE_OAUTH_CLIENT_ID", secret_id = local.TAILSCALE_OAUTH_CLIENT_ID },
+    { name = "TAILSCALE_OAUTH_SECRET", secret_id = local.TAILSCALE_OAUTH_SECRET },
   ]
 }
 
