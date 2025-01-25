@@ -13,6 +13,7 @@ locals {
   SSH_PUB_KEY               = "b2b149a9-1a9c-4a45-b3c6-b1d400b48405"
   TAILSCALE_OAUTH_CLIENT_ID = "6577c828-7802-4246-8762-b27000f030e9"
   TAILSCALE_OAUTH_SECRET    = "ce78265d-a7b9-4fbf-958b-b27000f04bef"
+  TAILSCALE_TAILNET         = "05f7568d-67a7-43c3-b91a-b27001095440"
 }
 
 module "org_mgmt" {
@@ -101,6 +102,7 @@ module "infra" {
     { name = "SSH_PUB_KEY", secret_id = local.SSH_PUB_KEY },
     { name = "TAILSCALE_OAUTH_CLIENT_ID", secret_id = local.TAILSCALE_OAUTH_CLIENT_ID },
     { name = "TAILSCALE_OAUTH_SECRET", secret_id = local.TAILSCALE_OAUTH_SECRET },
+    { name = "TAILSCALE_TAILNET", secret_id = local.TAILSCALE_TAILNET },
   ]
 }
 
