@@ -76,6 +76,12 @@ module "manifests" {
   is_public   = true
   topics      = ["hacktoberfest", "kubernetes", "flux", "gitops"]
 
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+    "render-kustomize",
+  ]
+
   secrets = [
     { name = "PAT", secret_id = local.PAT },
   ]
