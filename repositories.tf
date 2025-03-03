@@ -154,13 +154,13 @@ module "kink" {
   ]
 }
 
-module "linuxkit-modules" {
+module "kvm-device-plugin" {
   source      = "./modules/repository"
-  name        = "linuxkit-modules"
-  description = "Modules for linuxkit and containers"
+  name        = "kvm-device-plugin"
+  description = "Minimal device plugin integrating KVM."
   archived    = false
   is_public   = true
-  topics      = ["hacktoberfest", "kubernetes", "linuxkit"]
+  topics      = ["hacktoberfest", "kubernetes", "kvm"]
 
   required_status_checks = [
     "DCO",
