@@ -99,6 +99,13 @@ module "charts" {
   enable_pages = true
   topics       = ["hacktoberfest", "kubernetes", "helm"]
 
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+    "linters",
+    "chart-testing",
+  ]
+
   secrets = [
     { name = "PAT", secret_id = local.PAT },
     { name = "GPG_KEYRING_BASE64", secret_id = local.GPG_KEYRING_BASE64 },
