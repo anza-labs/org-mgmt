@@ -234,7 +234,11 @@ module "website" {
     "pr-title",
   ]
 
-  labels = []
+  labels = [
+    { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
+    { name = "content/page", color = "f658b8", description = "Issues or PRs related to page content updates." },
+    { name = "content/blog-post", color = "f658b8", description = "Issues or PRs related to blog post content." },
+  ]
 
   secrets = [
     { name = "PAT", secret_id = local.PAT },
