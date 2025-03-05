@@ -234,6 +234,8 @@ module "website" {
     "pr-title",
   ]
 
+  labels = []
+
   secrets = [
     { name = "PAT", secret_id = local.PAT },
   ]

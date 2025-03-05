@@ -26,6 +26,7 @@ resource "github_repository" "repo" {
   dynamic "pages" {
     for_each = var.enable_pages ? [1] : []
     content {
+      cname = !strcontains(var.homepage_url, "github.io") ? var.homepage_url : null
       source {
         branch = "gh-pages"
         path   = "/"
