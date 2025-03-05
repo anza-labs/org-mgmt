@@ -226,7 +226,7 @@ module "website" {
   archived           = false
   is_public          = true
   topics             = ["blog"]
-  enable_pages       = true
+  enable_pages       = false
   archive_on_destroy = false
   homepage_url       = "anza-labs.dev"
   auto_init          = true
