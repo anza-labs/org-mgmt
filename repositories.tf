@@ -227,7 +227,7 @@ module "website" {
   is_public    = true
   topics       = ["blog"]
   enable_pages = true
-  homepage_url = "anza-labs.github.io"
+  homepage_url = "anza-labs.dev"
 
   required_status_checks = [
     "DCO",
