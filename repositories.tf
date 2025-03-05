@@ -164,7 +164,7 @@ module "kink" {
 module "kvm-device-plugin" {
   source      = "./modules/repository"
   name        = "kvm-device-plugin"
-  description = "Minimal device plugin integrating KVM."
+  description = "Minimal device plugin integrating KVM device into Kubernetes."
   archived    = false
   is_public   = true
   topics      = ["hacktoberfest", "kubernetes", "kvm"]
@@ -172,6 +172,10 @@ module "kvm-device-plugin" {
   required_status_checks = [
     "DCO",
     "pr-title",
+    "unit",
+    "e2e",
+    "lint",
+    "hadolint",
   ]
 
   secrets = [
