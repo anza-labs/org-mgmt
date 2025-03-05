@@ -20,6 +20,18 @@ variable "archived" {
   type        = bool
 }
 
+variable "auto_init" {
+  description = "Whether the repository should be initialized on creation."
+  default     = false
+  type        = bool
+}
+
+variable "archive_on_destroy" {
+  description = "Whether the repository should be archived when destroying."
+  default     = true
+  type        = bool
+}
+
 variable "is_public" {
   description = "Whether the repository is public (true) or private (false)"
   type        = bool

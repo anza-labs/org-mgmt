@@ -1,16 +1,17 @@
 resource "github_repository" "repo" {
-  name         = var.name
-  description  = var.description
-  visibility   = var.is_public ? "public" : "private"
-  archived     = var.archived
-  topics       = var.topics
-  homepage_url = var.homepage_url
+  name               = var.name
+  description        = var.description
+  visibility         = var.is_public ? "public" : "private"
+  archived           = var.archived
+  topics             = var.topics
+  homepage_url       = var.homepage_url
+  auto_init          = var.auto_init
+  archive_on_destroy = var.archive_on_destroy
 
-  archive_on_destroy = true
-  has_discussions    = false
-  has_issues         = true
-  has_wiki           = false
-  has_projects       = true
+  has_discussions = false
+  has_issues      = true
+  has_wiki        = false
+  has_projects    = true
 
   allow_update_branch         = true
   allow_auto_merge            = true

@@ -220,14 +220,16 @@ module "docker-library" {
 }
 
 module "website" {
-  source       = "./modules/repository"
-  name         = "anza-labs.github.io"
-  description  = ""
-  archived     = false
-  is_public    = true
-  topics       = ["blog"]
-  enable_pages = true
-  homepage_url = "anza-labs.dev"
+  source             = "./modules/repository"
+  name               = "anza-labs.github.io"
+  description        = ""
+  archived           = false
+  is_public          = true
+  topics             = ["blog"]
+  enable_pages       = true
+  archive_on_destroy = false
+  homepage_url       = "anza-labs.dev"
+  auto_init          = true
 
   required_status_checks = [
     "DCO",
