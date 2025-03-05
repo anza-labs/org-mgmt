@@ -218,3 +218,23 @@ module "docker-library" {
     { name = "PAT", secret_id = local.PAT },
   ]
 }
+
+module "website" {
+  source       = "./modules/repository"
+  name         = "anza-labs.github.io"
+  description  = ""
+  archived     = false
+  is_public    = true
+  topics       = ["blog"]
+  enable_pages = true
+  homepage_url = "anza-labs.github.io"
+
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+  ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+  ]
+}
