@@ -226,9 +226,8 @@ module "website" {
   archived           = false
   is_public          = true
   topics             = ["blog"]
-  enable_pages       = false
+  enable_pages       = true
   homepage_url       = "anza-labs.dev"
-  auto_init          = true
 
   required_status_checks = [
     "DCO",

@@ -5,7 +5,6 @@ resource "github_repository" "repo" {
   archived           = var.archived
   topics             = var.topics
   homepage_url       = var.homepage_url
-  auto_init          = var.auto_init
   archive_on_destroy = var.archive_on_destroy
 
   has_discussions = false
