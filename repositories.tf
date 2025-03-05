@@ -183,6 +183,24 @@ module "kvm-device-plugin" {
   ]
 }
 
+module "tun-manager" {
+  source      = "./modules/repository"
+  name        = "tun-manager"
+  description = "Minimal TUN/TAP device manager for Kubernetes."
+  archived    = false
+  is_public   = true
+  topics      = ["hacktoberfest", "kubernetes", "tun", "tap"]
+
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+  ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+  ]
+}
+
 module "docker-library" {
   source      = "./modules/repository"
   name        = "docker-library"
