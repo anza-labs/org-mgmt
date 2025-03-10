@@ -251,14 +251,18 @@ module "cosi-sample-app" {
   description   = ""
   archived      = false
   is_public     = true
-  enable_issues = false
   topics        = ["hacktoberfest", "container-object-storage-interface", "object-storage"]
 
-  labels = []
+  labels = [
+    { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
+    { name = "do-not-merge", color = "e11d21", description = "Indicates that a PR should not merge." },
+  ]
 
   required_status_checks = [
     "DCO",
     "pr-title",
+    "lint",
+    "hadolint",
   ]
 
   secrets = [
