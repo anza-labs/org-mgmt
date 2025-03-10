@@ -38,6 +38,12 @@ variable "enable_pages" {
   default     = false
 }
 
+variable "enable_issues" {
+  description = "Enable issues for the repository (true to enable, false to disable)"
+  type        = bool
+  default     = true
+}
+
 variable "required_status_checks" {
   description = "List of required status checks for pull request merges"
   type        = list(string)

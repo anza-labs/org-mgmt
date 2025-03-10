@@ -6,9 +6,9 @@ resource "github_repository" "repo" {
   topics             = var.topics
   homepage_url       = var.homepage_url
   archive_on_destroy = var.archive_on_destroy
+  has_issues         = var.enable_issues
 
   has_discussions = false
-  has_issues      = true
   has_wiki        = false
   has_projects    = true
 
