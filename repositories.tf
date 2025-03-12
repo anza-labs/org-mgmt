@@ -3,6 +3,7 @@ locals {
   DISCORD_WEBHOOK_FLUX_EU_1 = "693e8bd4-4cb4-4a5b-9ab7-b25601604439"
   GPG_KEYRING_BASE64        = "568fd648-901a-4161-85e4-b1c500b3cb94"
   GPG_PASSPHRASE            = "ffb60bb8-8422-4d3b-95a1-b20700fb5232"
+  COMMIT_SIGNING = "4c5c18b1-5412-4b71-85e1-b29e009d6cbd"
   LINODE_TOKEN              = "1c579b93-ac50-47a9-85e1-b1c500b40dd5"
   OCI_FINGERPRINT           = "fdc9cf76-3eed-4173-9e66-b1d400b74aaf"
   OCI_PEM_PRV               = "8c29761d-9f79-44f1-97a1-b1d400b70984"
@@ -110,6 +111,7 @@ module "charts" {
     { name = "PAT", secret_id = local.PAT },
     { name = "GPG_KEYRING_BASE64", secret_id = local.GPG_KEYRING_BASE64 },
     { name = "GPG_PASSPHRASE", secret_id = local.GPG_PASSPHRASE },
+    { name = "COMMIT_SIGNING", secret_id = local.COMMIT_SIGNING },
   ]
 }
 
