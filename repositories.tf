@@ -163,13 +163,13 @@ module "kink" {
   ]
 }
 
-module "kvm-device-plugin" {
+module "kubelet-device-plugins" {
   source      = "./modules/repository"
-  name        = "kvm-device-plugin"
-  description = "Minimal device plugin integrating KVM device into Kubernetes."
+  name        = "kubelet-device-plugins"
+  description = "Minimal device plugins integrating linux devices into Kubernetes."
   archived    = false
   is_public   = true
-  topics      = ["hacktoberfest", "kubernetes", "kvm"]
+  topics      = ["hacktoberfest", "kubelet", "kvm", "tap", "tun"]
 
   required_status_checks = [
     "DCO",
@@ -178,24 +178,6 @@ module "kvm-device-plugin" {
     "e2e",
     "lint",
     "hadolint",
-  ]
-
-  secrets = [
-    { name = "PAT", secret_id = local.PAT },
-  ]
-}
-
-module "tun-manager" {
-  source      = "./modules/repository"
-  name        = "tun-manager"
-  description = "Minimal TUN/TAP device manager for Kubernetes."
-  archived    = false
-  is_public   = true
-  topics      = ["hacktoberfest", "kubernetes", "tun", "tap"]
-
-  required_status_checks = [
-    "DCO",
-    "pr-title",
   ]
 
   secrets = [
