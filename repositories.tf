@@ -1,5 +1,6 @@
 locals {
   BITWARDEN_TOKEN           = "0a3da8e6-41e3-4c40-9883-b23c00af72ee"
+  BW_ACCESS_TOKEN           = "f94c94d7-7a61-41c4-ac63-b2ba01004c9c"
   DISCORD_WEBHOOK_FLUX_EU_1 = "693e8bd4-4cb4-4a5b-9ab7-b25601604439"
   GOOGLE_CREDENTIALS        = "bf265967-3ca4-470f-96ca-b2b900dd1e7f"
   GOOGLE_PROJECT_ID         = "b9d45273-8595-4b9c-bdca-b2b900dcfe84"
@@ -78,6 +79,7 @@ module "infra" {
 
   secrets = [
     { name = "BITWARDEN_TOKEN", secret_id = local.BITWARDEN_TOKEN },
+    { name = "BW_ACCESS_TOKEN", secret_id = local.BW_ACCESS_TOKEN },
     { name = "DISCORD_WEBHOOK_FLUX_EU_1", secret_id = local.DISCORD_WEBHOOK_FLUX_EU_1 },
     { name = "GOOGLE_CREDENTIALS", secret_id = local.GOOGLE_CREDENTIALS },
     { name = "GOOGLE_PROJECT_ID", secret_id = local.GOOGLE_PROJECT_ID },
