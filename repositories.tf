@@ -275,3 +275,26 @@ module "cosi-sample-app" {
     { name = "PAT", secret_id = local.PAT },
   ]
 }
+
+module "k8s-policies" {
+  source      = "./modules/repository"
+  name        = "k8s-policies"
+  description = ""
+  archived    = false
+  is_public   = true
+  topics      = ["jspolicy"]
+
+  labels = [
+    { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
+    { name = "do-not-merge", color = "e11d21", description = "Indicates that a PR should not merge." },
+  ]
+
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+  ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+  ]
+}
