@@ -282,7 +282,7 @@ module "k8s-policies" {
   description = ""
   archived    = false
   is_public   = true
-  topics      = ["jspolicy"]
+  topics      = ["hacktoberfest", "jspolicy", "kubernetes"]
 
   labels = [
     { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
