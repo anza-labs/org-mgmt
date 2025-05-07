@@ -296,9 +296,9 @@ module "k8s-policies" {
   required_status_checks = [
     "DCO",
     "pr-title",
-    "compile",
     "format",
     "test",
+    "e2e",
   ]
 
   secrets = [
