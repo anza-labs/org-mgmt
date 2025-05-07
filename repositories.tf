@@ -287,6 +287,10 @@ module "k8s-policies" {
   labels = [
     { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
     { name = "do-not-merge", color = "e11d21", description = "Indicates that a PR should not merge." },
+    { name = "autorelease: pending", color = "ffdd66", description = "Indicates that a release is pending." },
+    { name = "autorelease: tagged", color = "ffdd66", description = "Indicates that a release has been tagged." },
+    { name = "autorelease: snapshot", color = "ffdd66", description = "Indicates that a snapshot release is available." },
+    { name = "autorelease: published", color = "ffdd66", description = "Indicates that a release has been published." },
   ]
 
   required_status_checks = [
