@@ -1,0 +1,5 @@
+{
+  "kubelet-device-plugins": "v0.2.2",
+  "image-builder": "v0.4.3",
+  "cosi-sample-app": "v0.1.6"
+}

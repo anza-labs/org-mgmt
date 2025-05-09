@@ -41,3 +41,6 @@ Brewfile.lock.json
 
 # Ignore Bitwarden specific directories
 .bitwarden
+
+# release script subrepos
+/tmp
