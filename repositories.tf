@@ -129,6 +129,22 @@ module "charts" {
     "chart-testing",
   ]
 
+  labels = [
+    { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
+    { name = "do-not-merge", color = "e11d21", description = "Indicates that a PR should not merge." },
+    { name = "kind/bug", color = "e11d21", description = "Categorizes issue or PR as related to a bug." },
+    { name = "kind/documentation", color = "c7def8", description = "Categorizes issue or PR as related to documentation." },
+    { name = "kind/feature", color = "c7def8", description = "Categorizes issue or PR as related to a new feature." },
+    { name = "kind/security", color = "e11d21", description = "Categorizes issue or PR as related to a security." },
+    { name = "kind/support", color = "c7def8", description = "Categorizes issue or PR as support-related." },
+    { name = "good first issue", color = "7057ff", description = "Denotes an issue ready for a new contributor, according to the \"help wanted\" guidelines." },
+    { name = "help wanted", color = "006b75", description = "Denotes an issue that needs help from a contributor. Must meet \"help wanted\" guidelines." },
+    { name = "autorelease: pending", color = "ffdd66", description = "Indicates that a release is pending." },
+    { name = "autorelease: tagged", color = "ffdd66", description = "Indicates that a release has been tagged." },
+    { name = "autorelease: snapshot", color = "ffdd66", description = "Indicates that a snapshot release is available." },
+    { name = "autorelease: published", color = "ffdd66", description = "Indicates that a release has been published." },
+  ]
+
   secrets = [
     { name = "PAT", secret_id = local.PAT },
     { name = "GPG_KEYRING_BASE64", secret_id = local.GPG_KEYRING_BASE64 },
