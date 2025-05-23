@@ -1,5 +1,6 @@
 {
-  "kubelet-device-plugins": "v0.2.2",
-  "image-builder": "v0.4.3",
-  "cosi-sample-app": "v0.1.6"
+  "github.com/registry-operator/registry-operator": "v0.3.1",
+  "github.com/anza-labs/kubelet-device-plugins": "v0.2.2",
+  "github.com/anza-labs/image-builder": "v0.4.3",
+  "github.com/anza-labs/cosi-sample-app": "v0.1.6"
 }

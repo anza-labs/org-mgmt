@@ -58,12 +58,6 @@ def parse_arguments():
         help="Path to a JSON file containing repositories and their versions (e.g., vMAJOR.MINOR.PATCH). (Required)"
     )
     parser.add_argument(
-        "--org",
-        type=str,
-        default="github.com/anza-labs",
-        help="GitHub organization or user (e.g., github.com/your-org). Default: github.com/anza-labs"
-    )
-    parser.add_argument(
         "--dry-run",
         type=str,
         nargs='?',
@@ -316,13 +310,13 @@ def run_make_release(destination_path, version_tag, repo_name, is_dry_run_git, i
         print_info(f"Changing working directory back to: {original_cwd}")
         os.chdir(original_cwd)
 
-def process_repositories(repos_to_process, org, is_dry_run_gh, is_dry_run_git, is_dry_run_make):
+def process_repositories(repos_to_process, is_dry_run_gh, is_dry_run_git, is_dry_run_make):
     """Clones, ensures local release branches, and runs make for each repository."""
     print_info("\nStarting repository processing...")
     original_cwd_for_processing = os.getcwd()
 
     for repo_name, version_tag_from_json in repos_to_process.items(): # Renamed for clarity
-        repo_url = f"{org}/{repo_name}"
+        repo_url = f"{repo_name}"
         destination_path = os.path.abspath(os.path.join(CLONE_DIR_REPOS, repo_name))
 
         print_info(f"\nProcessing {Colors.BOLD}{repo_name}{Colors.RESET} (version from JSON: {version_tag_from_json})...")
@@ -394,8 +388,6 @@ def main():
         if not display_list and is_dry_run_filesystem : display_list.append("filesystem (implicitly with gh)")
         print_info(f"{Colors.BOLD}{Colors.YELLOW}--- DRY RUN MODE ENABLED for: {', '.join(display_list)} ---{Colors.RESET}")
 
-    print_info(f"Using organization: {args.org}")
-
     repos_to_process = load_repos_from_json(args.repos_file)
     if repos_to_process is None:
         print_error(f"Failed to load repositories from {args.repos_file}. Exiting.")
@@ -406,7 +398,7 @@ def main():
     print_success(f"Successfully loaded {len(repos_to_process)} repositories from {args.repos_file}.")
 
     setup_clone_directory(is_dry_run_filesystem)
-    process_repositories(repos_to_process, args.org, is_dry_run_gh, is_dry_run_git, is_dry_run_make)
+    process_repositories(repos_to_process, is_dry_run_gh, is_dry_run_git, is_dry_run_make)
 
 if __name__ == "__main__":
     main()
