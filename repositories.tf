@@ -127,6 +127,8 @@ module "charts" {
     "pr-title",
     "linters",
     "chart-testing",
+    "unittest",
+    "e2e",
   ]
 
   labels = [
