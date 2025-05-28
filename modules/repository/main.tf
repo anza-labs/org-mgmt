@@ -35,12 +35,31 @@ resource "github_repository" "repo" {
   }
 }
 
+locals {
+  labels = [
+    { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
+    { name = "do-not-merge", color = "e11d21", description = "Indicates that a PR should not merge." },
+    { name = "kind/bug", color = "e11d21", description = "Categorizes issue or PR as related to a bug." },
+    { name = "kind/documentation", color = "c7def8", description = "Categorizes issue or PR as related to documentation." },
+    { name = "kind/feature", color = "c7def8", description = "Categorizes issue or PR as related to a new feature." },
+    { name = "kind/security", color = "e11d21", description = "Categorizes issue or PR as related to a security." },
+    { name = "kind/support", color = "c7def8", description = "Categorizes issue or PR as support-related." },
+    { name = "good first issue", color = "7057ff", description = "Denotes an issue ready for a new contributor, according to the \"help wanted\" guidelines." },
+    { name = "help wanted", color = "006b75", description = "Denotes an issue that needs help from a contributor. Must meet \"help wanted\" guidelines." },
+    { name = "Review effort 1/5", color = "d1bcf9", description = "qodo-merge: auto-labels" },
+    { name = "Review effort 2/5", color = "d1bcf9", description = "qodo-merge: auto-labels" },
+    { name = "Review effort 3/5", color = "d1bcf9", description = "qodo-merge: auto-labels" },
+    { name = "Review effort 4/5", color = "d1bcf9", description = "qodo-merge: auto-labels" },
+    { name = "Review effort 5/5", color = "d1bcf9", description = "qodo-merge: auto-labels" },
+  ]
+}
+
 resource "github_issue_labels" "labels" {
   repository = github_repository.repo.name
   depends_on = [github_repository.repo]
 
   dynamic "label" {
-    for_each = var.labels
+    for_each = distinct(concat(var.labels, local.labels))
     content {
       name        = label.value.name
       description = label.value.description
