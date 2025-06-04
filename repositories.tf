@@ -25,7 +25,7 @@ module "org_mgmt" {
   name        = "org-mgmt"
   description = "Management of org via OpenTofu and GitHub Actions"
   archived    = false
-  is_public   = true
+  is_public   = false
   topics      = ["hacktoberfest", "opentofu"]
 
   labels = [
@@ -55,7 +55,7 @@ module "manifests" {
   name        = "manifests"
   description = "Application manifests for Flux managed clusters"
   archived    = false
-  is_public   = true
+  is_public   = false
   topics      = ["hacktoberfest", "kubernetes", "flux", "gitops"]
 
   required_status_checks = [
@@ -74,7 +74,7 @@ module "infra" {
   description = "Infrastructure as a code"
   name        = "infra"
   archived    = false
-  is_public   = true
+  is_public   = false
   topics      = ["hacktoberfest", "kubernetes", "flux", "gitops"]
 
   secrets = [
