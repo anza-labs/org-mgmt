@@ -155,30 +155,6 @@ module "charts" {
   ]
 }
 
-module "kink" {
-  source       = "./modules/repository"
-  name         = "kink"
-  description  = "Kubernetes in Kubernetes"
-  archived     = true
-  is_public    = true
-  topics       = ["hacktoberfest", "kubernetes", "cluster-api"]
-  enable_pages = true
-  homepage_url = "anza-labs.github.io/kink"
-
-  required_status_checks = [
-    "DCO",
-    "pr-title",
-    "unit",
-    "e2e",
-    "lint",
-    "hadolint",
-  ]
-
-  secrets = [
-    { name = "PAT", secret_id = local.PAT },
-  ]
-}
-
 module "kubelet-device-plugins" {
   source      = "./modules/repository"
   name        = "kubelet-device-plugins"
