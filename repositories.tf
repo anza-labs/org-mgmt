@@ -159,7 +159,7 @@ module "kink" {
   source       = "./modules/repository"
   name         = "kink"
   description  = "Kubernetes in Kubernetes"
-  archived     = false
+  archived     = true
   is_public    = true
   topics       = ["hacktoberfest", "kubernetes", "cluster-api"]
   enable_pages = true
