@@ -80,22 +80,6 @@ module "infra" {
   ]
 }
 
-module "infra_ansible" {
-  source      = "./modules/repository"
-  description = "Ansible playbooks for infra"
-  name        = "infra-ansible"
-  archived    = false
-  is_public   = true
-  topics      = ["hacktoberfest", "ansible"]
-
-  required_status_checks = []
-  labels                 = []
-
-  secrets = [
-    { name = "PAT", secret_id = local.PAT },
-  ]
-}
-
 module "charts" {
   source       = "./modules/repository"
   name         = "charts"
