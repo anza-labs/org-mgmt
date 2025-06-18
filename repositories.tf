@@ -51,25 +51,6 @@ module "org_mgmt" {
   ]
 }
 
-module "manifests" {
-  source      = "./modules/repository"
-  name        = "manifests"
-  description = "Application manifests for Flux managed clusters"
-  archived    = false
-  is_public   = true
-  topics      = ["hacktoberfest", "kubernetes", "flux", "gitops"]
-
-  required_status_checks = [
-    "DCO",
-    "pr-title",
-    "render-kustomize",
-  ]
-
-  secrets = [
-    { name = "PAT", secret_id = local.PAT },
-  ]
-}
-
 module "infra" {
   source      = "./modules/repository"
   description = "Infrastructure as a code"
