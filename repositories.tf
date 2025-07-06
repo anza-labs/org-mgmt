@@ -8,7 +8,6 @@ locals {
   GPG_KEYRING_BASE64        = "568fd648-901a-4161-85e4-b1c500b3cb94"
   GPG_PASSPHRASE            = "ffb60bb8-8422-4d3b-95a1-b20700fb5232"
   COMMIT_SIGNING            = "4c5c18b1-5412-4b71-85e1-b29e009d6cbd"
-  LINODE_TOKEN              = "1c579b93-ac50-47a9-85e1-b1c500b40dd5"
   OCI_FINGERPRINT           = "fdc9cf76-3eed-4173-9e66-b1d400b74aaf"
   OCI_PEM_PRV               = "8c29761d-9f79-44f1-97a1-b1d400b70984"
   OCI_TENANCY_OCID          = "f65d2583-7fe2-4ead-a4fa-b1d400b72191"
@@ -66,7 +65,6 @@ module "infra" {
     { name = "DISCORD_WEBHOOK_SYSTEMS", secret_id = local.DISCORD_WEBHOOK_SYSTEMS },
     { name = "GOOGLE_CREDENTIALS", secret_id = local.GOOGLE_CREDENTIALS },
     { name = "GOOGLE_PROJECT_ID", secret_id = local.GOOGLE_PROJECT_ID },
-    { name = "LINODE_TOKEN", secret_id = local.LINODE_TOKEN },
     { name = "OCI_FINGERPRINT", secret_id = local.OCI_FINGERPRINT },
     { name = "OCI_PEM_PRV", secret_id = local.OCI_PEM_PRV },
     { name = "OCI_TENANCY_OCID", secret_id = local.OCI_TENANCY_OCID },
