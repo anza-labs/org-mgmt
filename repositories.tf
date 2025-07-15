@@ -160,32 +160,6 @@ module "docker-library" {
   ]
 }
 
-module "website" {
-  source       = "./modules/repository"
-  name         = "anza-labs.github.io"
-  description  = ""
-  archived     = false
-  is_public    = true
-  topics       = ["blog"]
-  enable_pages = true
-  homepage_url = "anza-labs.dev"
-
-  required_status_checks = [
-    "DCO",
-    "pr-title",
-  ]
-
-  labels = [
-    { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
-    { name = "content/page", color = "f658b8", description = "Issues or PRs related to page content updates." },
-    { name = "content/blog-post", color = "f658b8", description = "Issues or PRs related to blog post content." },
-  ]
-
-  secrets = [
-    { name = "PAT", secret_id = local.PAT },
-  ]
-}
-
 module "cosi-sample-app" {
   source      = "./modules/repository"
   name        = "cosi-sample-app"
