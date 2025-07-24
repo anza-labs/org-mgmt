@@ -157,6 +157,7 @@ module "docker-library" {
 
   secrets = [
     { name = "PAT", secret_id = local.PAT },
+    { name = "COMMIT_SIGNING", secret_id = local.COMMIT_SIGNING },
   ]
 }
 
