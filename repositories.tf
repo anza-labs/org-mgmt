@@ -185,3 +185,25 @@ module "cosi-sample-app" {
     { name = "PAT", secret_id = local.PAT },
   ]
 }
+
+module "grpctunnel" {
+  source      = "./modules/repository"
+  name        = "grpctunnel"
+  description = ""
+  archived    = false
+  is_public   = true
+  topics      = []
+
+  labels = [
+    { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
+    { name = "do-not-merge", color = "e11d21", description = "Indicates that a PR should not merge." },
+  ]
+
+  required_status_checks = [
+    "DCO",
+  ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+  ]
+}
