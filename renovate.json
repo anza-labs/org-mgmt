@@ -11,6 +11,7 @@
   "vulnerabilityAlerts": {
     "enabled": true,
     "labels": [
+      "area/dependency",
       "kind/security"
     ]
   }

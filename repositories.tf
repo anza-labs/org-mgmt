@@ -189,10 +189,10 @@ module "cosi-sample-app" {
 module "grpctunnel" {
   source      = "./modules/repository"
   name        = "grpctunnel"
-  description = ""
+  description = "gRPC Tunneling"
   archived    = false
   is_public   = true
-  topics      = []
+  topics      = ["go", "golang", "grpc", "tunnel", "tunneling"]
 
   labels = [
     { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
@@ -201,6 +201,9 @@ module "grpctunnel" {
 
   required_status_checks = [
     "DCO",
+    "pr-title",
+    "lint",
+    "test",
   ]
 
   secrets = [
