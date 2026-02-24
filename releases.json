@@ -1,4 +1,4 @@
 {
-  "github.com/anza-labs/kubelet-device-plugins": "v0.2.3",
-  "github.com/anza-labs/cosi-sample-app": "v0.1.7"
+  "github.com/anza-labs/kubelet-device-plugins": "v0.2.4",
+  "github.com/anza-labs/cosi-sample-app": "v0.1.8"
 }
