@@ -21,7 +21,7 @@ resource "github_repository" "repo" {
   web_commit_signoff_required = true
 
   squash_merge_commit_title   = "PR_TITLE"
-  squash_merge_commit_message = "PR_BODY"
+  squash_merge_commit_message = "BLANK"
 
   dynamic "pages" {
     for_each = var.enable_pages ? [1] : []
