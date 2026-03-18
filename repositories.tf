@@ -19,6 +19,7 @@ locals {
   TAILSCALE_OAUTH_SECRET    = "ce78265d-a7b9-4fbf-958b-b27000f04bef"
   TAILSCALE_TAILNET         = "05f7568d-67a7-43c3-b91a-b27001095440"
   CLOUDFLARE_API_KEY        = "3c54eb1f-1b88-473e-8e11-b4110070d9c6"
+  CLOUDFLARE_ACCOUNT_ID     = "a004bca2-748b-4f83-82a6-b411007184de"
 }
 
 module "org_mgmt" {
@@ -77,6 +78,7 @@ module "infra" {
     { name = "TAILSCALE_OAUTH_SECRET", secret_id = local.TAILSCALE_OAUTH_SECRET },
     { name = "TAILSCALE_TAILNET", secret_id = local.TAILSCALE_TAILNET },
     { name = "CLOUDFLARE_API_KEY", secret_id = local.CLOUDFLARE_API_KEY },
+    { name = "CLOUDFLARE_ACCOUNT_ID", secret_id = local.CLOUDFLARE_ACCOUNT_ID },
   ]
 }
 
