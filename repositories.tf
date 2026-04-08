@@ -123,25 +123,3 @@ module "charts" {
     { name = "COMMIT_SIGNING", secret_id = local.COMMIT_SIGNING },
   ]
 }
-
-module "kubelet-device-plugins" {
-  source      = "./modules/repository"
-  name        = "kubelet-device-plugins"
-  description = "Minimal device plugins integrating linux devices into Kubernetes."
-  archived    = false
-  is_public   = true
-  topics      = ["hacktoberfest", "kubelet", "kvm", "tap"]
-
-  required_status_checks = [
-    "DCO",
-    "pr-title",
-    "unit",
-    "e2e",
-    "lint",
-    "hadolint",
-  ]
-
-  secrets = [
-    { name = "PAT", secret_id = local.PAT },
-  ]
-}
