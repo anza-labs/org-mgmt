@@ -150,7 +150,7 @@ module "docker-library" {
   source      = "./modules/repository"
   name        = "docker-library"
   description = ""
-  archived    = false
+  archived    = true
   is_public   = true
   topics      = ["hacktoberfest", "docker"]
 
