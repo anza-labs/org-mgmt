@@ -109,3 +109,15 @@ resource "github_actions_secret" "secrets" {
   secret_name     = each.key
   plaintext_value = each.value.value
 }
+
+# resource "local_sensitive_file" "secrets_env" {
+#   content = join("\n", [
+#     for name, secret in data.bitwarden_secret.secrets :
+#     "export ${name}=\"${secret.value}\""
+#   ])
+#   filename = "${path.root}/tmp/${var.name}.env"
+
+#   lifecycle {
+#     ignore_changes = [content]
+#   }
+# }

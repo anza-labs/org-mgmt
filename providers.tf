@@ -15,6 +15,11 @@ terraform {
       source  = "maxlaverse/bitwarden"
       version = "0.17.6"
     }
+
+    local = {
+      source  = "hashicorp/local"
+      version = "2.8.0"
+    }
   }
 }
 

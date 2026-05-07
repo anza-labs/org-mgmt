@@ -10,6 +10,11 @@ terraform {
     bitwarden = {
       source = "maxlaverse/bitwarden"
     }
+
+    # tflint-ignore: terraform_required_providers
+    local = {
+      source = "hashicorp/local"
+    }
   }
 }
 
