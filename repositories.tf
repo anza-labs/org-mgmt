@@ -123,3 +123,22 @@ module "charts" {
     { name = "COMMIT_SIGNING", secret_id = local.COMMIT_SIGNING },
   ]
 }
+
+module "docker-library" {
+  source      = "./modules/repository"
+  name        = "docker-library"
+  description = ""
+  archived    = false
+  is_public   = true
+  topics      = ["hacktoberfest", "docker"]
+
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+  ]
+
+  secrets = [
+    { name = "PAT", secret_id = local.PAT },
+    { name = "COMMIT_SIGNING", secret_id = local.COMMIT_SIGNING },
+  ]
+}
